@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.svg {
+  position: fixed;
+  z-index: -1;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+  h1 {
+    @apply text-2xl font-bold;
+  }
+  h2 {
+    @apply text-xl font-bold;
+  }
+  h3 {
+    @apply text-lg font-bold;
+  }
+  p {
+    @apply text-base;
+  }
+}
+.section-container {
+  @apply container flex min-h-full max-w-full flex-col gap-8 text-center text-3xl;
+}
