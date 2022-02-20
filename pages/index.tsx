@@ -7,6 +7,7 @@ import {
   FaCss3Alt,
   FaNode,
   FaGitAlt,
+  FaArrowDown,
 } from 'react-icons/fa'
 import { SiMongodb, SiNextdotjs, SiSvelte } from 'react-icons/si'
 import ProjectCard from '../components/_projectCard'
@@ -14,12 +15,15 @@ import { currentProjects } from '../lib/currentProjects'
 
 const Home: NextPage = () => {
   const reactSize = 120
-  console.log(currentProjects)
   return (
     <>
       <img className="svg min-h-screen" src="/website-bg.svg" />
-      <section className="grid min-h-screen max-w-full place-items-center">
-        <h1 className=" text-5xl text-white">Hi, I'm Tyler.</h1>
+      <section className="grid min-h-screen max-w-full place-items-center text-5xl text-white">
+        <h1 className="text-5xl text-white">
+          Hi, I'm Tyler.
+          <br /> I'm a front end web developer.
+        </h1>
+        <FaArrowDown />
       </section>
       <section className="section-container bg-white">
         <h2>Here are some of my skills:</h2>

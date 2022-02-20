@@ -29,3 +29,7 @@
 .section-container {
   @apply container flex min-h-full max-w-full flex-col gap-8 p-4 text-center text-3xl;
 }
+
+.card {
+  @apply container relative mx-auto flex max-w-fit flex-col rounded-md bg-medium shadow-md shadow-black;
+}
