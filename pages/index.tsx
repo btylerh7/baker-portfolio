@@ -35,7 +35,7 @@ const Home: NextPage = () => {
           <FaGitAlt size={reactSize} />
         </div>
       </section>
-      <section className="section-container bg-light text-white">
+      <section className="section-container bg-dark text-white">
         <h2>Here are some of the projects I have completed:</h2>
         <div className="grid w-full grid-cols-2 gap-y-8">
           {currentProjects.map((project) => {
