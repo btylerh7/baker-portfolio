@@ -33,3 +33,8 @@
 .card {
   @apply container relative mx-auto flex max-w-fit flex-col rounded-md bg-medium shadow-md shadow-black;
 }
+.my-bg {
+  background-image: url('/website-bg.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}

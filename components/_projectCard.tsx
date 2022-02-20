@@ -14,7 +14,7 @@ const ProjectCard: React.FC<{ props: CardProps }> = ({ props }) => {
       <div className="flex justify-center gap-4 ">
         <a target="_blank" href={props.live_demo_link}>
           <img
-            className="aspect-video max-w-md cursor-pointer "
+            className="aspect-video w-full max-w-md cursor-pointer "
             src={props.image_path}
             alt={props.title}
           />
