@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { FaGithub } from 'react-icons/fa'
 import React from 'react'
 
@@ -11,24 +10,29 @@ export interface CardProps {
 }
 const ProjectCard: React.FC<{ props: CardProps }> = ({ props }) => {
   return (
-    <div className="container mx-auto flex flex-col gap-4">
-      <h3>{props.title}</h3>
-      <div className="flex justify-center gap-4">
-        <Link href={props.live_demo_link}>
+    <div className="card">
+      <div className="flex justify-center gap-4 ">
+        <a target="_blank" href={props.live_demo_link}>
           <img
-            className="aspect-video max-w-md cursor-pointer"
+            className="aspect-video max-w-md cursor-pointer "
             src={props.image_path}
+            alt={props.title}
           />
-        </Link>
+        </a>
       </div>
-      <p>{props.description}</p>
-      <div className="flex cursor-pointer justify-center gap-4">
-        <Link href={props.github_link}>
-          <div>
-            <FaGithub />
-          </div>
-        </Link>
-        <Link href={props.live_demo_link}>Live Demo</Link>
+      <div className="flex flex-col gap-4 py-4 ">
+        <h3>{props.title}</h3>
+        <p className="mx-auto max-w-xs">{props.description}</p>
+        <div className="flex justify-center gap-8">
+          <a target="_blank" href={props.github_link}>
+            <div>
+              <FaGithub />
+            </div>
+          </a>
+          <a target="_blank" href={props.live_demo_link}>
+            Live Demo
+          </a>
+        </div>
       </div>
     </div>
   )
