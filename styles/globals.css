@@ -27,5 +27,5 @@
   }
 }
 .section-container {
-  @apply container flex min-h-full max-w-full flex-col gap-8 text-center text-3xl;
+  @apply container flex min-h-full max-w-full flex-col gap-8 p-4 text-center text-3xl;
 }
