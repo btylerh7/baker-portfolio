@@ -19,6 +19,7 @@ const Home: NextPage = () => {
     <div className="bg-dark">
       <Head>
         <title>Tyler Baker - Home</title>
+        <meta name="theme-color" content="#1A1A2E"></meta>
       </Head>
       {/* <img className="svg min-h-screen" src="/website-bg.svg" /> */}
       <section className="my-bg grid min-h-screen max-w-full place-items-center text-5xl text-white">
