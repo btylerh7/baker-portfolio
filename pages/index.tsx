@@ -1,20 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import {
-  FaReact,
-  FaJsSquare,
-  FaHtml5,
-  FaCss3Alt,
-  FaNode,
-  FaGitAlt,
-  FaArrowDown,
-} from 'react-icons/fa'
-import { SiMongodb, SiNextdotjs, SiSvelte } from 'react-icons/si'
+import { FaArrowDown } from 'react-icons/fa'
 import ProjectCard from '../components/_projectCard'
 import { currentProjects } from '../lib/currentProjects'
 
 const Home: NextPage = () => {
-  const reactSize = 120
   return (
     <div className="bg-dark">
       <Head>
@@ -32,9 +22,9 @@ const Home: NextPage = () => {
           <FaArrowDown className="text-center" />
         </div>
       </section>
-      <section className="section-container p-x-4 bg-white">
+      <section className="section-container p-x-4 bg-gray-100">
         <h2>Here are some of my skills:</h2>
-        <div className="grid max-w-7xl grid-cols-3 place-content-center place-items-center gap-8 px-4 text-black md:gap-x-0 lg:mx-auto lg:grid-cols-9 lg:gap-8 ">
+        <div className="max-w-8xl grid grid-cols-3 place-content-center place-items-center gap-8 px-4 text-gray-900 md:gap-x-0 lg:mx-auto lg:grid-cols-9 lg:gap-8 ">
           <img src="/html5.svg" />
           <img src="/css.svg" />
           <img src="/JS.svg" />
@@ -46,9 +36,9 @@ const Home: NextPage = () => {
           <img src="/git.svg" />
         </div>
       </section>
-      <section className="section-container  text-white">
+      <section className="section-container bg-gray-100  text-gray-900">
         <h2>Here are some of the projects I have completed:</h2>
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 justify-center gap-y-16 lg:grid-cols-2 lg:gap-y-8">
+        <div className="mx-auto grid w-full max-w-4xl grid-cols-1 justify-center gap-4 text-white lg:grid-cols-2">
           {currentProjects.map((project) => {
             return <ProjectCard key={project.title} props={project} />
           })}
