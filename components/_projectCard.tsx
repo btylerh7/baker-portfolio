@@ -14,15 +14,15 @@ const ProjectCard: React.FC<{ props: CardProps }> = ({ props }) => {
       <div className="flex justify-center gap-4 ">
         <a target="_blank" href={props.live_demo_link}>
           <img
-            className="aspect-video w-full max-w-md cursor-pointer "
+            className="aspect-video w-full max-w-xs cursor-pointer "
             src={props.image_path}
             alt={props.title}
           />
         </a>
       </div>
       <div className="flex flex-col gap-4 py-4 ">
-        <h3>{props.title}</h3>
-        <p className="mx-auto max-w-xs">{props.description}</p>
+        <h3 className="text-xl font-medium">{props.title}</h3>
+        <p className="max-w-xs text-sm">{props.description}</p>
         <div className="flex justify-center gap-8">
           <a target="_blank" href={props.github_link}>
             <div>

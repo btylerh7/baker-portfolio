@@ -33,7 +33,7 @@
 }
 
 .card {
-  @apply container relative mx-auto flex max-w-fit flex-col rounded-md bg-medium shadow-md shadow-black;
+  @apply container relative mx-auto flex max-w-fit flex-col rounded-md bg-medium p-4 shadow-md shadow-black;
 }
 .my-bg {
   background-image: url('/website-bg.svg');
