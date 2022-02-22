@@ -17,9 +17,12 @@ const Home: NextPage = () => {
   const reactSize = 120
   return (
     <div className="bg-dark">
+      <Head>
+        <title>Tyler Baker - Home</title>
+      </Head>
       {/* <img className="svg min-h-screen" src="/website-bg.svg" /> */}
       <section className="my-bg grid min-h-screen max-w-full place-items-center text-5xl text-white">
-        <h1 className="text-5xl text-white">
+        <h1 className="px-4 text-5xl text-white md:px-0">
           Hi, I'm Tyler.
           <br /> I'm a front end web developer.
         </h1>
@@ -30,16 +33,16 @@ const Home: NextPage = () => {
       </section>
       <section className="section-container p-x-4 bg-white">
         <h2>Here are some of my skills:</h2>
-        <div className="flex place-content-center gap-4">
-          <FaHtml5 size={reactSize} />
-          <FaCss3Alt size={reactSize} />
-          <FaJsSquare size={reactSize} />
-          <FaReact size={reactSize} />
-          <SiNextdotjs size={reactSize} />
-          <SiSvelte size={reactSize} />
-          <FaNode size={reactSize} />
-          <SiMongodb size={reactSize} />
-          <FaGitAlt size={reactSize} />
+        <div className="grid max-w-7xl grid-cols-3 place-content-center place-items-center gap-8 px-4 text-black md:gap-x-0 lg:mx-auto lg:grid-cols-9 lg:gap-8 ">
+          <img src="/html5.svg" />
+          <img src="/css.svg" />
+          <img src="/JS.svg" />
+          <img src="/react.svg" />
+          <img src="/next-js.svg" />
+          <img src="/svelte.svg" />
+          <img src="/nodejs.svg" />
+          <img src="/mongodb.svg" />
+          <img src="/git.svg" />
         </div>
       </section>
       <section className="section-container  text-white">
