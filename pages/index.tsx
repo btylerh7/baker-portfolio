@@ -38,7 +38,8 @@ const Home: NextPage = () => {
       </section>
       <section className="section-container bg-gray-100  text-gray-900">
         <h2>Here are some of the projects I have completed:</h2>
-        <div className="mx-auto grid w-full max-w-4xl grid-cols-1 justify-center gap-4 text-white lg:grid-cols-2">
+        {/* <div className="mx-auto grid w-full max-w-4xl grid-cols-1 justify-center gap-4 text-white lg:grid-cols-2"> */}
+        <div className="mx-auto grid w-full gap-4 lg:max-w-5xl lg:grid-cols-2">
           {currentProjects.map((project) => {
             return <ProjectCard key={project.title} props={project} />
           })}

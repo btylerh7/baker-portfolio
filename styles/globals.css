@@ -33,7 +33,8 @@
 }
 
 .card {
-  @apply container relative mx-auto flex max-w-fit flex-col rounded-md bg-medium p-4 shadow-md shadow-black;
+  @apply container relative mx-auto flex max-w-lg flex-col rounded-md bg-white p-4 text-black hover:bg-medium hover:text-gray-100;
+  box-shadow: 0 1px 4px 0px #333;
 }
 .my-bg {
   background-image: url('/website-bg.svg');
