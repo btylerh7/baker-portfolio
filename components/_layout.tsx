@@ -6,11 +6,27 @@ function Layout({ children }: any) {
   return (
     <>
       <nav className="hidden justify-end bg-dark px-16 text-xl text-white md:flex">
-        <div className="flex gap-16 py-8">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/portfolio">Portfolio</Link>
-          <Link href="/contact">Contact</Link>
+        <div className="flex gap-16 py-8 text-white">
+          <Link href="/">
+            <p className="cursor-pointer text-xl text-white duration-150 ease-in-out hover:border-b-2 hover:ease-in">
+              Home
+            </p>
+          </Link>
+          <Link href="/about">
+            <p className="cursor-pointer text-xl text-white duration-150 ease-in-out hover:border-b-2 hover:ease-in">
+              About
+            </p>
+          </Link>
+          <Link href="/portfolio">
+            <p className="cursor-pointer text-xl text-white duration-150 ease-in-out hover:border-b-2 hover:ease-in">
+              Portfolio
+            </p>
+          </Link>
+          <Link href="/contact">
+            <p className="cursor-pointer text-xl text-white duration-150 ease-in-out hover:border-b-2 hover:ease-in">
+              Contact
+            </p>
+          </Link>
         </div>
       </nav>
       <main>{children}</main>
