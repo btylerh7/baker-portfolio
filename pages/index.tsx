@@ -17,9 +17,9 @@ const Home: NextPage = () => {
           Hi, I'm Tyler.
           <br /> I'm a front end web developer.
         </h1>
-        <div className="mx-auto flex w-fit flex-col items-center justify-center">
-          <h2 className="text-center">Scroll to see more</h2>
-          <FaArrowDown className="text-center" />
+        <div className="mx-auto flex w-fit flex-col items-center justify-center text-white">
+          <h2 className="text-center text-white">Scroll to see more</h2>
+          <FaArrowDown />
         </div>
       </section>
       <section className="section-container p-x-4 bg-gray-100">
