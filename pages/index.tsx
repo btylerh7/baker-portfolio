@@ -45,12 +45,12 @@ const Home: NextPage = () => {
           })}
         </div>
       </section>
-      <section className="section-container bg-gray-100 py-8">
+      {/* <section className="section-container bg-gray-100 py-8">
         <h2>Connect with me!</h2>
         <div className="max-w-8xl">
           <img src="/linkedin.svg" />
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }
