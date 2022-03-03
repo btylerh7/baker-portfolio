@@ -22,7 +22,7 @@ const Home: NextPage = () => {
           <FaArrowDown />
         </div>
       </section>
-      <section className="section-container p-x-4 bg-gray-100">
+      <section className="section-container p-x-4 bg-gray-100 py-8">
         <h2>Here are some of my skills:</h2>
         <div className="max-w-8xl grid grid-cols-3 place-content-center place-items-center gap-8 px-4 text-gray-900 md:gap-x-0 lg:mx-auto lg:grid-cols-9 lg:gap-8 ">
           <img src="/html5.svg" />
@@ -39,10 +39,16 @@ const Home: NextPage = () => {
       <section className="section-container bg-gray-100  text-gray-900">
         <h2>Here are some of the projects I have completed:</h2>
         {/* <div className="mx-auto grid w-full max-w-4xl grid-cols-1 justify-center gap-4 text-white lg:grid-cols-2"> */}
-        <div className="mx-auto grid w-full gap-4 lg:max-w-5xl lg:grid-cols-2">
+        <div className="mx-auto grid w-full gap-8 py-8 lg:max-w-5xl lg:grid-cols-2">
           {currentProjects.map((project) => {
             return <ProjectCard key={project.title} props={project} />
           })}
+        </div>
+      </section>
+      <section className="section-container bg-gray-100 py-8">
+        <h2>Connect with me!</h2>
+        <div className="max-w-8xl">
+          <img src="/linkedin.svg" />
         </div>
       </section>
     </div>

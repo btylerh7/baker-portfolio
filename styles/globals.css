@@ -13,7 +13,7 @@
   *,
   *::before,
   *::after {
-    @apply box-border font-Poppins text-gray-900;
+    @apply box-border font-Poppins;
   }
   h1 {
     @apply text-2xl font-bold;
@@ -33,7 +33,7 @@
 }
 
 .card {
-  @apply container relative mx-auto flex max-w-lg flex-col justify-center rounded-md bg-white p-4 text-black hover:scale-105 hover:bg-slate-50;
+  @apply container relative mx-auto flex max-w-lg flex-col justify-center rounded-md bg-white p-4 text-black duration-150 hover:scale-105 hover:bg-slate-50 hover:ease-in;
   box-shadow: 0 1px 4px 0px #333;
 }
 .my-bg {

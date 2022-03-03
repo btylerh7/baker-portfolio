@@ -24,7 +24,9 @@ const ProjectCard: React.FC<{ props: CardProps }> = ({ props }) => {
           <p className="text-sm">{props.description}</p>
           <div className="flex justify-center gap-8">
             <div>
-              <FaGithub />
+              <a target="_blank" href={props.github_link}>
+                <FaGithub />
+              </a>
             </div>
             <a target="_blank" href={props.live_demo_link}>
               Live Demo
