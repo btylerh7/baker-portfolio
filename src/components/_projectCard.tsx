@@ -3,6 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+
 export interface CardProps {
   title: string
   image_path: string
@@ -13,15 +14,17 @@ export interface CardProps {
 const ProjectCard: React.FC<{ props: CardProps }> = ({ props }) => {
   return (
     <div className="card">
-      <Link target="_blank" href={props.live_demo_link}>
+      
         <div className="flex justify-center gap-4 ">
-          <Image
-            className="aspect-video w-full max-w-xs cursor-pointer "
-            src={props.image_path}
-            alt={props.title}
-            width={1440}
-            height={786}
-          />
+        <Link target="_blank" href={props.live_demo_link}>
+            <Image
+              className="aspect-video w-full max-w-xs cursor-pointer "
+              src={props.image_path}
+              alt={props.title}
+              width={1440}
+              height={786}
+            />
+        </Link>
         </div>
         <div className="flex flex-col gap-4 py-4">
           <h3 className="text-xl font-medium">{props.title}</h3>
@@ -32,12 +35,12 @@ const ProjectCard: React.FC<{ props: CardProps }> = ({ props }) => {
                 <FaGithub />
               </Link>
             </div>
-            <Link target="_blank" href={props.live_demo_link}>
-              Live Demo
-            </Link>
+              <Link target="_blank" href={props.live_demo_link}>
+                Live Demo
+              </Link>
           </div>
         </div>
-      </Link>
+
     </div>
   )
 }

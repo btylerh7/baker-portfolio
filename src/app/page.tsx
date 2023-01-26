@@ -1,27 +1,23 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import '../styles/globals.css'
 import { FaArrowDown } from 'react-icons/fa'
 import ProjectCard from '../components/_projectCard'
 import { currentProjects } from '../lib/currentProjects'
 import Image from 'next/image'
 
-import htmlImage from '../public/html5.svg'
-import cssImage from '../public/css.svg'
-import jsImage from '../public/JS.svg'
-import reactImage from '../public/react.svg'
-import nextJsImage from '../public/next-js.svg'
-import svelteImage from '../public/svelte.svg'
-import nodeImage from '../public/nodejs.svg'
-import mongoImage from '../public/mongodb.svg'
-import gitImage from '../public/git.svg'
+import htmlImage from '../../public/html5.svg'
+import cssImage from '../../public/css.svg'
+import jsImage from '../../public/JS.svg'
+import reactImage from '../../public/react.svg'
+import nextJsImage from '../../public/next-js.svg'
+import svelteImage from '../../public/svelte.svg'
+import nodeImage from '../../public/nodejs.svg'
+import mongoImage from '../../public/mongodb.svg'
+import gitImage from '../../public/git.svg'
 
 const Home: NextPage = () => {
   return (
     <div className="bg-dark">
-      <Head>
-        <title>Tyler Baker - Home</title>
-        <meta name="theme-color" content="#1A1A2E"></meta>
-      </Head>
       {/* <img className="svg min-h-screen" src="/website-bg.svg" /> */}
       <section className="my-bg grid min-h-screen max-w-full place-items-center text-5xl text-white">
         <h1 className="px-4 text-5xl text-white md:px-0">
