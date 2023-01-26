@@ -1,5 +1,7 @@
 import { FaGithub } from 'react-icons/fa'
 import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export interface CardProps {
   title: string
@@ -11,12 +13,14 @@ export interface CardProps {
 const ProjectCard: React.FC<{ props: CardProps }> = ({ props }) => {
   return (
     <div className="card">
-      <a target="_blank" href={props.live_demo_link}>
+      <Link target="_blank" href={props.live_demo_link}>
         <div className="flex justify-center gap-4 ">
-          <img
+          <Image
             className="aspect-video w-full max-w-xs cursor-pointer "
             src={props.image_path}
             alt={props.title}
+            width={1440}
+            height={786}
           />
         </div>
         <div className="flex flex-col gap-4 py-4">
@@ -24,16 +28,16 @@ const ProjectCard: React.FC<{ props: CardProps }> = ({ props }) => {
           <p className="text-sm">{props.description}</p>
           <div className="flex justify-center gap-8">
             <div>
-              <a target="_blank" href={props.github_link}>
+              <Link target="_blank" href={props.github_link}>
                 <FaGithub />
-              </a>
+              </Link>
             </div>
-            <a target="_blank" href={props.live_demo_link}>
+            <Link target="_blank" href={props.live_demo_link}>
               Live Demo
-            </a>
+            </Link>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   )
 }

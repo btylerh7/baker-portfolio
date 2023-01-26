@@ -19,7 +19,7 @@ export const currentProjects: CardProps[] = [
   },
   {
     title: 'Web Piano',
-    image_path: 'WebPiano.png',
+    image_path: '/WebPiano.png',
     description:
       'A web piano build using the ToneJS library that is aimed at teaching piano notes to elementary music students.',
     github_link: 'https://github.com/btylerh7/web-piano',

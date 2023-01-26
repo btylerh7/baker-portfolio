@@ -3,6 +3,17 @@ import Head from 'next/head'
 import { FaArrowDown } from 'react-icons/fa'
 import ProjectCard from '../components/_projectCard'
 import { currentProjects } from '../lib/currentProjects'
+import Image from 'next/image'
+
+import htmlImage from '../public/html5.svg'
+import cssImage from '../public/css.svg'
+import jsImage from '../public/JS.svg'
+import reactImage from '../public/react.svg'
+import nextJsImage from '../public/next-js.svg'
+import svelteImage from '../public/svelte.svg'
+import nodeImage from '../public/nodejs.svg'
+import mongoImage from '../public/mongodb.svg'
+import gitImage from '../public/git.svg'
 
 const Home: NextPage = () => {
   return (
@@ -25,15 +36,15 @@ const Home: NextPage = () => {
       <section className="section-container p-x-4 bg-gray-100 py-8">
         <h2>Here are some of my skills:</h2>
         <div className="max-w-8xl grid grid-cols-3 place-content-center place-items-center gap-8 px-4 text-gray-900 md:gap-x-0 lg:mx-auto lg:grid-cols-9 lg:gap-8 ">
-          <img src="/html5.svg" />
-          <img src="/css.svg" />
-          <img src="/JS.svg" />
-          <img src="/react.svg" />
-          <img src="/next-js.svg" />
-          <img src="/svelte.svg" />
-          <img src="/nodejs.svg" />
-          <img src="/mongodb.svg" />
-          <img src="/git.svg" />
+          <Image alt="html logo" src={htmlImage} />
+          <Image alt="css logo" src={cssImage} />
+          <Image alt="javascript logo" src={jsImage} />
+          <Image alt="react logo" src={reactImage} />
+          <Image alt="next logo" src={nextJsImage} />
+          <Image alt="svelte logo" src={svelteImage} />
+          <Image alt="nodejs logo" src={nodeImage} />
+          <Image alt="mongo db logo" src={mongoImage} />
+          <Image alt="git logo" src={gitImage} />
         </div>
       </section>
       <section className="section-container bg-gray-100  text-gray-900">
