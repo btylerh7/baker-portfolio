@@ -7,7 +7,7 @@ export const currentProjects: CardProps[] = [
     description:
       'A fully functional notes app with user authentication and a MongoDB database.',
     github_link: 'https://github.com/btylerh7/full-stack-notes-app',
-    live_demo_link: 'https://baker-notes.herokuapp.com/',
+    live_demo_link: 'https://full-stack-notes-app.onrender.com',
   },
   {
     title: 'Music Blogging Site',
