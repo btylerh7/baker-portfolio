@@ -95,11 +95,14 @@
 @keyframes fade-in {
   0% {
     opacity: 0;
+    color: #1A1A2E;
   }
   50% {
     opacity: 0;
+    color: #1A1A2E;
   }
   100% {
     opacity: 1;
+    color: #fff;
   }
 }
