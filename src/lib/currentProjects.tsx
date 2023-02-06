@@ -11,7 +11,7 @@ export const currentProjects: CardProps[] = [
   },
   {
     title: 'Music Blogging Site',
-    image_path: '/NextBlog.png',
+    image_path: '/baker_blog.png',
     description:
       'A personal blog that I created using Next.js to talk about my music knowledge.',
     github_link: 'https://github.com/btylerh7/next-blog',

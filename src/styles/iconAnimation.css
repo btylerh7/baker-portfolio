@@ -1,0 +1,13 @@
+.icon {
+    animation-duration: 1s;
+    animation-name: animate-icons;
+}
+
+@keyframes animate-icons {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
