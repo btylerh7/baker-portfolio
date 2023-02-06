@@ -40,12 +40,12 @@ const Home = ({}) => {
           Hi, I'm Tyler.
           <br /> I'm a front end web developer.
         </h1>
-        <div className="mx-auto flex w-fit flex-col items-center justify-center text-white">
+        <div className="delay mx-auto flex w-fit flex-col items-center justify-center text-white">
           <h2 className="text-center text-white">Scroll to see more</h2>
           <FaArrowDown />
         </div>
       </section>
-      <section className="section-container p-x-4 bg-gray-100 py-8">
+      <section className="section-container rotated p-x-4 bg-gray-100 py-8">
         <h2>Here are some of my skills:</h2>
         <div ref={iconRef} className={`${iconIsVisible ? 'icon': ''} max-w-8xl grid grid-cols-3 place-content-center place-items-center gap-8 px-4 text-gray-900 md:gap-x-0 lg:mx-auto lg:grid-cols-9 lg:gap-8`}>
           <Image alt="html logo" src={htmlImage} />
