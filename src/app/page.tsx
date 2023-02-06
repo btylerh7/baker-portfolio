@@ -1,4 +1,4 @@
-"use client"
+"use client" 
 
 import type { NextPage } from 'next'
 import '../styles/globals.css'
@@ -19,7 +19,8 @@ import nodeImage from '../../public/nodejs.svg'
 import mongoImage from '../../public/mongodb.svg'
 import gitImage from '../../public/git.svg'
 
-const Home: NextPage = () => {
+
+const Home = ({}) => {
   const iconRef:MutableRefObject<HTMLDivElement|null> = useRef(null)
   const [ iconIsVisible, setIconIsVisible ] = useState<boolean>()
   useEffect(() => {
