@@ -3,7 +3,7 @@
 import type { NextPage } from 'next'
 import '../styles/globals.css'
 import { FaArrowDown } from 'react-icons/fa'
-import ProjectCard from '../components/_projectCard'
+import ProjectCard from '../components/ProjectCard'
 import { currentProjects } from '../lib/currentProjects'
 import Image from 'next/image'
 import { useState, useRef, useEffect, MutableRefObject } from 'react'
