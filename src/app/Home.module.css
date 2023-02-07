@@ -46,6 +46,9 @@
     line-height: 2.25rem;
 
   }
+  .background-white {
+    background: var(--bg-off-white);
+  }
   .rotated {
     --rotation-degree: 17deg;
     --negative-rotation-degree: -17deg;
