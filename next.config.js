@@ -4,4 +4,8 @@ module.exports = {
   experimental: {
     appDir: true,
   },
+  // webpack(config) {
+  //   config.infrastructureLogging = { debug: /PackFileCache/ }
+  //   return config;
+  // }
 }
