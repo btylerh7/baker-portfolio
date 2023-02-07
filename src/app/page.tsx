@@ -8,6 +8,7 @@ import { currentProjects } from '../lib/currentProjects'
 import Image from 'next/image'
 import { useState, useRef, useEffect, MutableRefObject } from 'react'
 import '../styles/iconAnimation.css'
+import styles from './Home.module.css'
 
 import htmlImage from '../../public/html5.svg'
 import cssImage from '../../public/css.svg'
@@ -33,19 +34,19 @@ const Home = ({}) => {
     }
   }, [])
   return (
-    <div className="bg-dark">
-      {/* <img className="svg min-h-screen" src="/website-bg.svg" /> */}
-      <section className="my-bg grid min-h-screen max-w-full place-items-center text-5xl text-white">
-        <h1 className="px-4 text-5xl text-white md:px-0">
+    <div className={styles.wrapper}>
+      <header className={styles.header}>
+        <h1>
           Hi, I'm Tyler.
           <br /> I'm a front end web developer.
         </h1>
-        <div className="delay mx-auto flex w-fit flex-col items-center justify-center text-white">
-          <h2 className="text-center text-white">Scroll to see more</h2>
+        {/* w-fit */}
+        <div className={styles.scrollText}>
+          <h2>Scroll to see more</h2>
           <FaArrowDown />
         </div>
-      </section>
-      <section className="section-container rotated p-x-4 bg-gray-100 py-8">
+      </header>
+      <section className={styles.sectionContainer}>
         <h2>Here are some of my skills:</h2>
         <div ref={iconRef} className={`${iconIsVisible ? 'icon': ''} max-w-8xl grid grid-cols-3 place-content-center place-items-center gap-8 px-4 text-gray-900 md:gap-x-0 lg:mx-auto lg:grid-cols-9 lg:gap-8`}>
           <Image alt="html logo" src={htmlImage} />
@@ -60,7 +61,7 @@ const Home = ({}) => {
         </div>
         
       </section>
-      <section className="section-container bg-gray-100  text-gray-900">
+      <section className={styles.sectionContainer}>
         <h2>Here are some of the projects I have completed:</h2>
         {/* <div className="mx-auto grid w-full max-w-4xl grid-cols-1 justify-center gap-4 text-white lg:grid-cols-2"> */}
         <div className="mx-auto grid w-full gap-8 py-8 lg:max-w-5xl lg:grid-cols-2">

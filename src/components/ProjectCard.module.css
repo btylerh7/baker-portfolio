@@ -20,11 +20,12 @@
 .imageContainer {
     position: relative;
 }
-.imageContainer:hover {
+.imageContainer:hover, .imageContainer:focus {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
-.imageContainer:hover .description {
+.imageContainer:hover .description,
+.imageContainer:focus .description {
     display: grid;
     background: rgba(25,25,25,.75);
     color: #ffffff;

@@ -1,0 +1,114 @@
+.wrapper {
+    --bg-primary: #1A1A2E;
+    --bg-medium: #16213E;
+    --bg-light: #0F3460;
+    --accent: #E94560;
+    --bg-off-white: rgb(243 244 246);
+    background: var(--bg-primary);
+}
+
+.header {
+    display: grid;
+    min-height: 100vh;
+    /* max-width: 100%; */
+    font-size: 3rem;
+    place-items: center;
+    color: #ffffff;
+}
+.header h1 {
+    padding-inline: 1rem;
+    font-size: 3rem;
+    line-height: 1.25;
+}
+
+.scrollText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    margin-inline: auto;
+    animation-name: fade-in;
+    animation-duration: 5s;
+    
+}
+
+.sectionContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    background: var(--bg-off-white);
+    /* min-height: 100vh; */
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+
+  }
+  .rotated {
+    --rotation-degree: 17deg;
+    --negative-rotation-degree: -17deg;
+    --background-gradient: 
+      linear-gradient(90deg, rgba(36,0,32,1) 0%, rgba(121,9,93,1) 40%, rgba(0,212,255,1) 100%);
+    z-index: 0;
+    padding: 2rem;
+  }
+  .rotated::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    z-index: -1;
+    transform: skewY(var(--rotation-degree));
+    @apply bg-gray-100;
+  }
+  .rotated::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    z-index: -1;
+    transform: skewY(var(--negative-rotation-degree));
+    @apply bg-gray-100;
+  }
+
+
+@media screen (min-width: 768px) {
+    .header h1 {
+        padding-inline: 0;
+    }
+    .sectionContainer {
+        max-width: 768px;
+    }
+}
+@media screen (min-width: 1024px) {
+    .sectionContainer {
+        max-width: 1024px;
+    }
+}
+@media screen (min-width: 1280px) {
+    .sectionContainer {
+        max-width: 1280px;
+    }
+}
+@media screen (min-width: 1536px) {
+    .sectionContainer {
+        max-width: 1536px;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+      color: #1A1A2E;
+    }
+    50% {
+      opacity: 0;
+      color: #1A1A2E;
+    }
+    100% {
+      opacity: 1;
+      color: #fff;
+    }
+  }
