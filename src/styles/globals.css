@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-primary: #1A1A2E;
+  --bg-medium: #16213E;
+  --bg-light: #0F3460;
+  --accent: #E94560;
+  --bg-off-white: rgb(243 244 246);
+}
 .svg {
   position: fixed;
   z-index: -1;
@@ -28,6 +35,9 @@
     @apply text-base;
   }
 }
+
+
+
 
 
 .underline-on-hover {

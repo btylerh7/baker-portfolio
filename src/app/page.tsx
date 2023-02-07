@@ -38,7 +38,7 @@ const Home = ({}) => {
       <header className={styles.header}>
         <h1>
           Hi, I'm Tyler.
-          <br /> I'm a front end web developer.
+          <br /> I'm a full-stack web developer.
         </h1>
         {/* w-fit */}
         <div className={styles.scrollText}>

@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import '../styles/globals.css'
 export default function RootLayout({
   children,
 }: {
@@ -26,11 +28,11 @@ export default function RootLayout({
                 Portfolio
               </p>
             </Link>
-            <Link href="/contact">
-              <p className="cursor-pointer text-xl text-white duration-150 ease-in-out underline-on-hover">
-                Contact
+            <a href="https://github.com/btylerh7" target="_blank" rel="noreferrer">
+              <p className="flex gap-4 align-center cursor-pointer text-xl text-white duration-150 ease-in-out underline-on-hover">
+                GitHub <FaExternalLinkAlt />
               </p>
-            </Link>
+            </a>
           </div>
         </nav>
         {children}</body>

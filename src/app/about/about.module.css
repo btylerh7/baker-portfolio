@@ -5,10 +5,13 @@
     gap: 2rem;
     padding: 2rem 1rem;
     text-align: center;
-    background: #1A1A2E;
+    
     color: white;
-    /* min-height: 100vh; */
     font-size: 1.875rem;
     line-height: 2.25rem;
+}
 
+.container {
+    background: #1A1A2E;
+    min-height: 100vh;
 }
