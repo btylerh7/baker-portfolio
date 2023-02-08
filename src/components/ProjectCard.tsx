@@ -2,7 +2,7 @@ import { FaGithub } from 'react-icons/fa'
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from './ProjectCard.module.css'
+import styles from '../styles/ProjectCard.module.css'
 
 
 export interface CardProps {

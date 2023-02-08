@@ -1,6 +1,6 @@
 import ProjectCard from '../../components/ProjectCard'
 import { currentProjects } from '../../lib/currentProjects'
-import styles from './Portfolio.module.css'
+import styles from '../../styles/Portfolio.module.css'
 
 function Portfolio() {
   return (
