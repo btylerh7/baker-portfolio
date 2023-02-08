@@ -8,7 +8,7 @@ import { currentProjects } from '../lib/currentProjects'
 import Image from 'next/image'
 import { useState, useRef, useEffect, MutableRefObject } from 'react'
 import '../styles/iconAnimation.css'
-import styles from './Home.module.css'
+import styles from 'Home.module.css'
 
 import htmlImage from '../../public/html5.svg'
 import cssImage from '../../public/css.svg'
