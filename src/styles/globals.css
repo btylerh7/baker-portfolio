@@ -20,7 +20,7 @@
   *,
   *::before,
   *::after {
-    @apply box-border font-Poppins;
+    @apply box-border font-Poppins scroll-smooth;
   }
   h1 {
     @apply text-2xl font-bold;

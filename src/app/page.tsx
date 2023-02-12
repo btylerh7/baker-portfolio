@@ -19,6 +19,7 @@ import svelteImage from '../../public/svelte.svg'
 import nodeImage from '../../public/nodejs.svg'
 import mongoImage from '../../public/mongodb.svg'
 import gitImage from '../../public/git.svg'
+import Link from 'next/link'
 
 
 const Home = ({}) => {
@@ -71,14 +72,15 @@ const Home = ({}) => {
             }
             
           })}
+
+          
         </div>
+        <button className={styles.button}>
+            <Link href="/portfolio">
+              See More Projects
+            </Link>
+          </button>
       </section>
-      {/* <section className="section-container bg-gray-100 py-8">
-        <h2>Connect with me!</h2>
-        <div className="max-w-8xl">
-          <img src="/linkedin.svg" />
-        </div>
-      </section> */}
     </div>
   )
 }
