@@ -11,50 +11,55 @@
   --accent: #E94560;
   --bg-off-white: rgb(243 244 246);
 }
+
 .svg {
   position: fixed;
   z-index: -1;
 }
 
 @layer base {
+
   *,
   *::before,
   *::after {
     @apply box-border font-Poppins scroll-smooth;
   }
+
   h1 {
     @apply text-2xl font-bold;
   }
+
   h2 {
     @apply text-4xl font-bold;
   }
+
   h3 {
     @apply text-lg font-bold;
   }
+
   p {
     @apply text-base;
   }
 }
 
 
-
-
-
 .underline-on-hover {
   position: relative;
 }
+
 .underline-on-hover::before {
   content: '';
   height: 2px;
   background: #fff;
   width: 0%;
-  position:absolute;
+  position: absolute;
   bottom: 0;
-  opacity:0;
+  opacity: 0;
   transform: translateY(2px);
   transition: opacity 80ms ease-in, width 120ms ease-in;
 
 }
+
 .underline-on-hover:hover::before {
   width: 100%;
   opacity: 1;
@@ -65,5 +70,3 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-
