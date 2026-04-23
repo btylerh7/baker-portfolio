@@ -1,4 +1,4 @@
-"use client" 
+"use client"
 
 import type { NextPage } from 'next'
 import '../styles/globals.css'
@@ -6,7 +6,7 @@ import { FaArrowDown } from 'react-icons/fa'
 import ProjectCard from '../components/ProjectCard'
 import { currentProjects } from '../lib/currentProjects'
 import Image from 'next/image'
-import { useState, useRef, useEffect, MutableRefObject } from 'react'
+import { useState, useRef, useEffect, RefObject } from 'react'
 import '../styles/iconAnimation.css'
 import styles from '../styles/Home.module.css'
 
@@ -22,15 +22,15 @@ import gitImage from '../../public/git.svg'
 import Link from 'next/link'
 
 
-const Home = ({}) => {
-  const iconRef:MutableRefObject<HTMLDivElement|null> = useRef(null)
-  const [ iconIsVisible, setIconIsVisible ] = useState<boolean>()
+const Home = ({ }) => {
+  const iconRef: RefObject<HTMLDivElement | null> = useRef(null)
+  const [iconIsVisible, setIconIsVisible] = useState<boolean>()
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0]
       setIconIsVisible(entry.isIntersecting)
     })
-    if(iconRef.current != null) {
+    if (iconRef.current != null) {
       observer.observe(iconRef.current)
     }
   }, [])
@@ -49,7 +49,7 @@ const Home = ({}) => {
       </header>
       <section className={styles.sectionContainer}>
         <h2>Here are some of my skills:</h2>
-        <div ref={iconRef} className={`${iconIsVisible ? 'icon': ''} max-w-8xl grid grid-cols-3 place-content-center place-items-center gap-8 px-4 text-gray-900 md:gap-x-0 lg:mx-auto lg:grid-cols-9 lg:gap-8`}>
+        <div ref={iconRef} className={`${iconIsVisible ? 'icon' : ''} max-w-8xl grid grid-cols-3 place-content-center place-items-center gap-8 px-4 text-gray-900 md:gap-x-0 lg:mx-auto lg:grid-cols-9 lg:gap-8`}>
           <Image alt="html logo" src={htmlImage} />
           <Image alt="css logo" src={cssImage} />
           <Image alt="javascript logo" src={jsImage} />
@@ -60,7 +60,7 @@ const Home = ({}) => {
           <Image alt="mongo db logo" src={mongoImage} />
           <Image alt="git logo" src={gitImage} />
         </div>
-        
+
       </section>
       <section className={styles.sectionContainer}>
         <h2>Here are some of the projects I have completed:</h2>
@@ -70,16 +70,16 @@ const Home = ({}) => {
             if (currentProjects.indexOf(project) <= 3) {
               return <ProjectCard key={project.title} props={project} />
             }
-            
+
           })}
 
-          
+
         </div>
         <button className={styles.button}>
-            <Link href="/portfolio">
-              See More Projects
-            </Link>
-          </button>
+          <Link href="/portfolio">
+            See More Projects
+          </Link>
+        </button>
       </section>
     </div>
   )
