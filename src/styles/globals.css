@@ -10,6 +10,7 @@
   --bg-light: #0F3460;
   --accent: #E94560;
   --bg-off-white: rgb(243 244 246);
+  --bg-light-2: hsl(from var(--bg-primary) h s 40%);
 }
 
 .svg {
