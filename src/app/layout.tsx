@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 import { AnalyticsWrapper } from '../components/Analytics'
+import Bubble from '../components/Bubble'
 import '../styles/globals.css'
 export default function RootLayout({
   children,
@@ -36,9 +37,10 @@ export default function RootLayout({
             </a>
           </div>
         </nav>
+        <Bubble />
         {children}
         <AnalyticsWrapper />
-        </body>
+      </body>
     </html>
   )
 }
