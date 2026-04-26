@@ -1,0 +1,133 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout>
+	<div class="wrapper">
+		<header class="hero">
+			<div class="overlay"></div>
+			<!-- <TexturedHeader headerLevel={1}> -->
+			<h1>Hi, I'm Tyler.</h1>
+			<!-- </TexturedHeader> -->
+			<p>
+			Welcome to my little corner of the internet!
+			I love making cool things and sharing them with
+			others.
+			</p>
+			<p>
+			This site serves as a space for me to show some
+			of the projects I've worked on. Most of the projects
+			on here are going to be personal little side-projects,
+			mainly because my current work is mostly on internal
+			tools!
+			</p>
+		</header>
+		<main>
+			<Icon id="js" displayText="Tech Knowledge" svgPath="/js.svg" />
+			<Icon id="gh" displayText="GitHub" svgPath="/github.svg" />
+
+		</main>
+	</wrapper>
+</Layout>
+
+<style is:global>
+	body {
+		overflow-y: hidden;
+	}
+	.wrapper {
+		display: grid;
+		place-content: center;
+	}
+	.hero {
+		anchor-name: --hero-anchor;
+		h1 {
+			font-size: 3.5rem;
+			font-family: cursive;
+		}
+		max-width: 700px;
+		height: 400px;
+		padding: 3rem;
+		margin: 6rem 0 2rem;
+		position: relative;
+		overflow-y: hidden;
+		z-index: 0;
+		box-shadow: 5px 5px 20px 0 hsl(from var(--primary-bg) h 20% 20%);
+		/* background: var(--primary-bg); */
+		p {
+		    font-weight: 500;
+		    font-size: 1.25rem;
+		}
+		/* animation: scroll-unfold 4s forwards; */
+	}
+	#js {
+		position: absolute;
+		position-anchor: --hero-anchor;
+		position-area: center bottom;
+	}
+
+	#gh {
+		position: absolute;
+		position-anchor: --hero-anchor;
+		position-area: left bottom;
+	}
+	.overlay {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background: url(/paper.svg);
+		overflow-x: hidden;
+		opacity: 1;
+	}
+	.arrow {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		svg {
+			margin: auto;
+		}
+		font-size: 1.25rem;
+		p {
+			/* transform: translateX(-20px); */
+			text-align: center;
+		}
+		color: white;
+		opacity: 0;
+		animation: arrow 6s forwards, arrow-bounce 2s ease-in-out infinite;
+		animation-delay: 4s;
+	}
+	@keyframes scroll-unfold {
+		0% {
+			height: 10px;
+		}
+		40% {
+			height: 70px;
+		}
+		90% {
+			transform: rotate(0deg);
+		}
+		100% {
+			height: 400px;
+			transform: rotate(-5deg);
+		}
+	}
+	@keyframes arrow {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	@keyframes arrow-bounce {
+		0%, 100% {
+
+			transform: translateY(-10px);
+		}
+		50% {
+
+			transform: translateY(10px);
+		}
+	}
+</style>
+

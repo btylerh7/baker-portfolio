@@ -1,0 +1,50 @@
+---
+interface Props {
+    headerLevel: number;
+    fontSize?: number;
+}
+const {headerLevel, fontSize} = Astro.props;
+---
+<!-- Filter code taken from below video -->
+<!-- https://youtu.be/n7y0y_8zTo4?t=1422-->
+<svg
+    width="100%"
+    height="100"
+    viewBox="0 0 300 100"
+    role="heading"
+    aria-level={headerLevel}
+>
+    <defs>
+	<filter id="texture" width="300" height="100" x="0" y="0">
+	    <feImage
+		xlink:href="/perlin.svg"
+		x="-300"
+		y="0"
+		width="200%"
+		height="200%"
+		result="IMAGE"
+		preserveAspectRatio="none">
+	    </feImage>
+	    <feDisplacementMap
+		    in="SourceGraphic"
+		    in2="IMAGE"
+		    scale="15"
+		    xChannelSelector="R"
+		    yChannelSelector="R"
+		    result="Textured_Text"
+	    ></feDisplacementMap>
+	</filter>
+    </defs>
+    <text
+	x="0"
+	y="65"
+	fill="black"
+	stroke="var(--accent-color)"
+	filter="url(#texture)"
+	font-size={fontSize ?? '3.5rem'}
+	dx="-180"
+    >
+	<slot />
+    </text>
+</svg>
+
