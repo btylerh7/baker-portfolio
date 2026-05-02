@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import DialogIcon from '../components/DialogIcon.astro';
 import LinkIcon from '../components/LinkIcon.astro';
 import About from '../components/About.astro';
+import TechKnowledge from '../components/TechKnowledge.astro';
+import {Image} from 'astro:assets';
+import profileImage from '../assets/profile-sm.jpg';
 ---
 
 <Layout>
@@ -10,7 +13,10 @@ import About from '../components/About.astro';
 		<header class="hero">
 			<div class="overlay"></div>
 			<!-- <TexturedHeader headerLevel={1}> -->
-			<h1>Hi, I'm Tyler.</h1>
+			<div class="hero-header">
+				<h1>Hi, I'm Tyler.</h1>
+				<Image class="profile" src={profileImage} width="100" height="100" alt="Tyler Baker, a bearded man with glasses in a suit jacked"/>
+			</div>
 			<!-- </TexturedHeader> -->
 			<p>
 			Welcome to my little corner of the internet!
@@ -26,19 +32,30 @@ import About from '../components/About.astro';
 			</p>
 		</header>
 		<main>
-			<DialogIcon id="js" displayText="Tech Knowledge" svgPath="/js.svg" dialogId='about'/>
+			<DialogIcon id="about-me" displayText="About Me" svgPath={profileImage.src} dialogId='about' />
+			<DialogIcon id="js" displayText="Tech Skills" svgPath="/js.svg" dialogId='tech'/>
 			<LinkIcon id="gh" displayText="GitHub" svgPath="/github.svg" link="https://github.com/btylerh7" />
 
 		</main>
 	</div>
 	<dialog id="about">
+		<div class="overlay-dialog"></div>
 		<About />
+	</dialog>
+	<dialog id="tech">
+		<div class="overlay-dialog"></div>
+		<TechKnowledge />
+		
 	</dialog>
 </Layout>
 
 <style is:global>
 	body {
 		overflow-y: hidden;
+		--float-btn-offset: 2em;
+	}
+	.profile {
+		border-radius: 50%;
 	}
 	.wrapper {
 		display: grid;
@@ -49,7 +66,11 @@ import About from '../components/About.astro';
 		h1 {
 			font-size: 3.5rem;
 			font-family: cursive;
+			@media screen and (width < 400px) {
+				font-size: 2rem;
+			}
 		}
+		background: url(/paper.svg);
 		max-width: 700px;
 		height: 400px;
 		padding: 3rem;
@@ -59,29 +80,95 @@ import About from '../components/About.astro';
 		z-index: 0;
 		box-shadow: 5px 5px 20px 0 hsl(from var(--primary-bg) h 20% 20%);
 		/* background: var(--primary-bg); */
+		@media screen and (width < 400px) {
+		    padding: 1rem;
+		}
 		p {
 		    font-weight: 500;
 		    font-size: 1.25rem;
+		    @media screen and (width < 600px) {
+			    font-size: 1rem;
+		    }
 		}
 		animation: scroll-unfold 4s forwards;
+	}
+	.hero-header {
+		display: flex;
+		justify-content: flex-start;
+		gap: 2rem;
+		align-items: center;
+	}
+	.icon {
+		img {
+			transition: transform 300ms ease-in;
+			transform: scale(1);
+
+		}
+		&:hover img {
+			transform: scale(1.3);
+		}
+		p {
+			transition: font-size 300ms ease-in, margin 300ms ease-in;
+		}
+		&:hover p {
+			font-size: 1.2rem;
+			margin-top: 0.25rem;
+		}
+
 	}
 	#js {
 		position: absolute;
 		position-anchor: --hero-anchor;
 		position-area: center bottom;
+		animation: arrow-bounce 3s infinite;
+		animation-delay: 1s;
+		margin-top: var(--float-btn-offset);
+	}
+	#about-me {
+		img {
+			border-radius: 5px;
+		}
+		position: absolute;
+		position-anchor: --hero-anchor;
+		position-area: left center;
+		animation: arrow-bounce 3s infinite;
+		margin-right: var(--float-btn-offset);
+		@media screen and (width < 900px) {
+			position-area: left bottom;
+			margin-right: 0;
+			margin-top: var(--float-btn-offset);
+		}
 	}
 
 	#gh {
 		position: absolute;
 		position-anchor: --hero-anchor;
-		position-area: left bottom;
+		position-area: right center;
+		@media screen and (width < 900px) {
+			position-area: right bottom;
+			margin-right: 0;
+			margin-top: var(--float-btn-offset);
+		}
+		animation: arrow-bounce 3s infinite;
+		animation-delay: 2s;
+		margin-left: var(--float-btn-offset);
 	}
 	.overlay {
 		position: absolute;
+		background: hsl(from var(--primary-bg) h s l /.5);
 		inset: 0;
 		z-index: -1;
-		background: url(/paper.svg);
 		overflow-x: hidden;
+		opacity: 1;
+	}
+	.overlay-dialog {
+		position: absolute;
+		top: -100px;
+		left: 0px;
+		right: 0px;
+		bottom: -300px;
+		background: hsl(from var(--primary-bg) h s l /.5);
+		z-index: -1;
 		opacity: 1;
 	}
 	.arrow {
@@ -100,6 +187,36 @@ import About from '../components/About.astro';
 		opacity: 0;
 		animation: arrow 6s forwards, arrow-bounce 2s ease-in-out infinite;
 		animation-delay: 4s;
+	}
+	dialog {
+		position: relative;
+		max-width: 50ch;
+		min-height: 300px;
+		max-height: 600px;
+		overflow-y: scroll;
+		background: url(/paper.svg);
+	        font-weight: 500;
+	        font-size: 1.25rem;
+		&::backdrop {
+			background: rgb(60 60 60 / .7);
+		}
+		button {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			font-size: 1rem;
+			padding: 0.25rem 0.5rem;
+			background: white;
+			border-radius: 0.2rem;
+			border: 1px solid var(--primary-bg);
+			cursor: pointer;
+			&:hover {
+				background: hsl(from var(--primary-light) h s 40%);
+				color: white;
+			}
+
+		}
+
 	}
 	@keyframes scroll-unfold {
 		0% {
