@@ -1,0 +1,38 @@
+---
+interface Props {
+    displayText: string;
+    svgPath: string;
+    id: string;
+    dialogId: string;
+}
+const {displayText, svgPath, id, dialogId} = Astro.props;
+---
+
+
+<button class="icon" id={id} command="show-modal" commandfor={dialogId}>
+    <!-- TODO: add alt -->
+    <img src={svgPath} alt="Icon" width="40" height="40">
+    <p>{displayText}</p>
+</button>
+
+<style>
+    .icon {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: white;
+	max-width: 150px;
+	text-align: center;
+	padding: 1rem;
+	transition: transform 100ms ease-in;
+	img {
+	    margin: auto;
+	}
+	p {
+	    margin-block: 0;
+	}
+	&:hover {
+	    transform: scale(1.2);
+	}
+    }
+</style>

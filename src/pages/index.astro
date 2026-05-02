@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Icon from '../components/Icon.astro';
+import DialogIcon from '../components/DialogIcon.astro';
+import LinkIcon from '../components/LinkIcon.astro';
+import About from '../components/About.astro';
 ---
 
 <Layout>
@@ -24,11 +26,14 @@ import Icon from '../components/Icon.astro';
 			</p>
 		</header>
 		<main>
-			<Icon id="js" displayText="Tech Knowledge" svgPath="/js.svg" />
-			<Icon id="gh" displayText="GitHub" svgPath="/github.svg" />
+			<DialogIcon id="js" displayText="Tech Knowledge" svgPath="/js.svg" dialogId='about'/>
+			<LinkIcon id="gh" displayText="GitHub" svgPath="/github.svg" link="https://github.com/btylerh7" />
 
 		</main>
-	</wrapper>
+	</div>
+	<dialog id="about">
+		<About />
+	</dialog>
 </Layout>
 
 <style is:global>
