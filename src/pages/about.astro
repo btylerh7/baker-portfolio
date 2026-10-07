@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LinkIcon from "../components/LinkIcon.astro";
+
+const url = Astro.url.pathname;
+---
+<Layout>
+    <div class="main-wrapper">
+	<nav>
+	    <a href="/" class={url == "/" ? "active" : ""}>Home</a>
+	    <a href="/about" class={url.startsWith("/about") ? "active" : ""}>About Me</a>
+	    <a href="/portfolio" class={url.startsWith("/portfolio") ? "active" : ""}>Portfolio</a>
+	    <LinkIcon id="gh" showText={false} displayText="GitHub" svgPath="/github.svg" link="https://github.com/btylerh7" />
+	</nav>
+	<main>
+	    <h1>Hello World</h1>
+	    <p>I'm testing out a new layout. Will hopefully work on it later.</p>
+	</main>
+    </div>
+</Layout>
+
+<style>
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    min-height: 85vh;
+    grid-template-areas: "nav main";
+}
+nav {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(4, 1fr);
+    text-align: center;
+    justify-content: center;
+    grid-area: nav;
+    gap: 0;
+    a {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+    }
+    .active {
+	background: var(--primary-bg-dark);
+    }
+}
+main {
+    padding: 1em;
+    grid-area: main;
+    color: white;
+    height:100%;
+}
+</style>
