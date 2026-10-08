@@ -1,3 +1,9 @@
+---
+import LinkIcon from "../components/LinkIcon.astro";
+import { ClientRouter }  from "astro:transitions";
+
+const url = Astro.url.pathname;
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -7,6 +13,7 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="theme-color" content="#1A1A2E" />
 		<meta name="generator" content={Astro.generator} />
+		<ClientRouter />
 		<title>Tyler Baker's Internet Home</title>
 	</head>
 	<body>
@@ -15,7 +22,15 @@
 		<!-- 	<a href="/portfolio">Portfolio</a> -->
 		<!-- 	<a href="https://github.com/btylerh7" target="_blank">GitHub</a> -->
 		<!-- </nav> -->
-		<slot />
+	<div class="main-wrapper">
+	    <nav>
+		<a href="/" class={url == "/" ? "active" : ""}>Home</a>
+		<a href="/about" class={url.startsWith("/about") ? "active" : ""}>About Me</a>
+		<a href="/portfolio" class={url.startsWith("/portfolio") ? "active" : ""}>Portfolio</a>
+		<LinkIcon id="gh" showText={false} displayText="GitHub" svgPath="/github.svg" link="https://github.com/btylerh7" />
+	    </nav>
+	    <slot />
+	</div>
 	</body>
 </html>
 
@@ -42,25 +57,38 @@
 		font-family: "Montserrat";
 		background: linear-gradient(to bottom, var(--primary-bg-dark), hsl(from var(--primary-bg-dark) h 30% 30%));
 	}
+	.main-wrapper {
+	    display: grid;
+	    grid-template-columns: 1fr 3fr;
+	    min-height: 85vh;
+	    grid-template-areas: "nav main";
+	}
 	nav {
+	    display: grid;
+	    height: 100%;
+	    grid-template-columns: 100%;
+	    grid-template-rows: repeat(4, 1fr);
+	    text-align: center;
+	    justify-content: center;
+	    grid-area: nav;
+	    gap: 0;
+	    a {
 		display: flex;
-		justify-content: flex-end;
+		width: 100%;
+		height: 100%;
 		align-items: center;
-		margin-bottom: 2em;
-		gap: 1rem;
-		/* cursor-pointer text-xl text-white duration-150 ease-in-out underline-on-hover */
-		a {
-			font-weight: bold;
-			cursor: pointer;
-			font-size: 1.5rem;
+		justify-content: center;
+		font-weight: bold;
+		cursor: pointer;
+		font-size: 1.5rem;
+		color: white;
+		text-decoration: none;
+		position: relative;
+		&:visited {
 			color: white;
-			text-decoration: none;
-			position: relative;
-			&:visited {
-				color: white;
-			}
 		}
-		a::before {
+	    
+		&::before {
 			content: '';
 			width: 0;
 			height: 2.5px;
@@ -72,9 +100,20 @@
 			opacity: 0;
 			transition: opacity 200ms ease-in-out, width 150ms ease-in-out;
 		}
-		a:hover::before {
-			width: 100%;
-			opacity: 1;
+		&:hover::before {
+		    width: 100%;
+		    opacity: 1;
 		}
+	    }
+		
+	    .active {
+		background: var(--primary-bg-dark);
+	    }
+	}
+	main {
+	    padding: 1em;
+	    grid-area: main;
+	    color: white;
+	    height:100%;
 	}
 </style>
