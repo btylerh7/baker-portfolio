@@ -1,0 +1,46 @@
+---
+import type styles from 'virtual:astro:image-styles.css';
+import ExternalLink from './icons/ExternalLink.astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+	src: ImageMetadata;
+	alt: string;
+	title: string;
+	href: string;
+	tech: string;
+	ps: string;
+}
+const { src, title, href, alt, tech, ps } = Astro.props;
+---
+
+<div class="link-header">
+	<h2>{title}</h2>
+	<a href={href} target="_blank">
+		<ExternalLink width="20" />
+	</a>
+</div>
+
+<Image src={src} alt={alt} />
+<!-- description for the application goes here -->
+<slot />
+<h3>Technologies Used</h3>
+<p>{tech}</p>
+{ps && <p>{ps}</p>}
+
+<style>
+	img {
+		box-shadow: 1px 1px 10px hsl(100 5 30);
+	}
+	a {
+		color: white;
+		:visited {
+			color: white;
+		}
+	}
+	.link-header {
+		display: flex;
+		gap: 0.5em;
+		align-items: center;
+	}
+</style>

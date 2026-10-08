@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import dadabase from '../assets/portfolio/dad-a-base.jpg';
+import PortfolioCard from '../components/PortfolioCard.astro';
+---
+
+<Layout>
+	<main>
+		<h1>My Projects</h1>
+		<PortfolioCard
+			title="The Dad-a-base"
+			href="https://jokes.tylerbaker.dev"
+			src={dadabase}
+			alt="A 90s-inspired website with a red brick background. A header with a wooden background texture shows a joke that says 'When I am stresed I like to iron clothes. It is a great way to let off steam.'"
+			tech="Hono + JSX, SVG graphics, Sqlite"
+			ps="P.S., I am hosting this one on my homelab! It's running from my Raspbery Pi!"
+		>
+			<p>
+				This website was heavily inspired by the 1990s Geocities era of the internet. It
+				features lots of custom SVGs that I made myself while learning how to make cool
+				shapes and textures with SVGs by hand. The bricks, the wooden backgrounds, and even
+				the clipboard icon were all made by me by hand!
+			</p>
+		</PortfolioCard>
+	</main>
+</Layout>
+
+<style>
+	main {
+		color: white;
+	}
+</style>
