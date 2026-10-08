@@ -1,39 +1,40 @@
 ---
 interface Props {
-    displayText: string;
-    svgPath: string;
-    id: string;
-    link: string;
+	displayText: string;
+	svgPath: string;
+	id: string;
+	link: string;
+	width?: string;
+	showText?: boolean;
 }
-const {displayText, svgPath, id, link} = Astro.props;
+const { displayText, svgPath, id, link, width, showText } = Astro.props;
 ---
 
-
 <a href={link} target="_blank" class="icon" id={id}>
-    <!-- TODO: add alt -->
-    <img src={svgPath} alt="Icon" width="40" height="40">
-    <p>{displayText}</p>
+	<!-- TODO: add alt -->
+	<img src={svgPath} alt={displayText} width={width || '40'} height={width || '40'} />
+	{showText && <p>{displayText}</p>}
 </a>
 
 <style>
-    .icon {
-	text-decoration: none;
-	background: none;
-	border: none;
-	cursor: pointer;
-	color: white;
-	max-width: 150px;
-	text-align: center;
-	padding: 1rem;
-	transition: transform 100ms ease-in;
-	img {
-	    margin: auto;
+	.icon {
+		text-decoration: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: white;
+		max-width: 150px;
+		text-align: center;
+		/* padding: 1rem; */
+		transition: transform 100ms ease-in;
+		img {
+			margin: auto;
+		}
+		p {
+			margin-block: 0;
+		}
+		&:hover {
+			transform: scale(1.2);
+		}
 	}
-	p {
-	    margin-block: 0;
-	}
-	&:hover {
-	    transform: scale(1.2);
-	}
-    }
 </style>
