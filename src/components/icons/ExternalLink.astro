@@ -1,0 +1,39 @@
+---
+interface Props {
+	width: string;
+}
+const { width } = Astro.props;
+---
+
+<svg
+	role="img"
+	aria-labelledby="external-link external-link-desc"
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 100 100"
+	width={width}
+	height={width}
+>
+	<title id="external-link">External Link</title>
+	<desc id="external-link-desc">Designates a link to an external site</desc>
+	<path
+		d="M 50 10 l -40 0 l 0 80 l 80 0 l 0 -40"
+		stroke="white"
+		fill="none"
+		stroke-linecap="round"
+		stroke-width="4"
+	/>
+	<path
+		d="M 70 10 l 20 0 l 0 20"
+		stroke="white"
+		fill="none"
+		stroke-linecap="round"
+		stroke-width="4"
+	/>
+	<path d="M 90 10 l -30 30" stroke="white" fill="none" stroke-linecap="round" stroke-width="4" />
+</svg>
+
+<style>
+	svg:hover {
+		transform: scale(1.2);
+	}
+</style>

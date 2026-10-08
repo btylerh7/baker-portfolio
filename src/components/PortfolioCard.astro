@@ -1,0 +1,63 @@
+---
+import ExternalLink from './icons/ExternalLink.astro';
+import LinkIcon from './LinkIcon.astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+	src: ImageMetadata;
+	alt: string;
+	title: string;
+	href: string;
+	tech: string;
+	ps: string;
+	github?: string;
+}
+const { src, title, href, alt, tech, ps, github } = Astro.props;
+---
+
+<div class="link-header">
+	<h2>{title}</h2>
+	<a href={href} target="_blank">
+		<ExternalLink width="20" />
+	</a>
+	{github && (
+		<LinkIcon id="gh" displayText="GitHub" svgPath="/github.svg" link={github} width="25" />
+	)}
+</div>
+<div class="portfolio-wrapper">
+	<Image src={src} alt={alt} />
+	<div class="detail-wrapper">
+		<!-- description for the application goes here -->
+		<slot />
+		<h3>Technologies Used</h3>
+		<p>{tech}</p>
+		{ps && <p>{ps}</p>}
+	</div>
+</div>
+
+<style>
+	img {
+		box-shadow: 1px 1px 10px hsl(100 5 30);
+	}
+	a {
+		color: white;
+		:visited {
+			color: white;
+		}
+	}
+	.link-header {
+		display: flex;
+		gap: 0.5em;
+		align-items: center;
+		justify-content: center;
+	}
+	.portfolio-wrapper {
+		margin: auto;
+		max-width: 600px;
+		border-radius: 5px;
+		box-shadow: 1px 1px 10px hsl(100 5 30);
+	}
+	.detail-wrapper {
+		padding: 1em;
+	}
+</style>
