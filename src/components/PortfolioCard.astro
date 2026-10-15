@@ -7,9 +7,9 @@ interface Props {
 	src: ImageMetadata;
 	alt: string;
 	title: string;
-	href: string;
 	tech: string;
-	ps: string;
+	ps?: string;
+	href?: string;
 	github?: string;
 }
 const { src, title, href, alt, tech, ps, github } = Astro.props;
@@ -17,9 +17,11 @@ const { src, title, href, alt, tech, ps, github } = Astro.props;
 
 <div class="link-header">
 	<h2>{title}</h2>
-	<a href={href} target="_blank">
-		<ExternalLink width="20" />
-	</a>
+	{href && (
+		<a href={href} target="_blank">
+			<ExternalLink width="20" />
+		</a>
+	)}
 	{github && (
 		<LinkIcon id="gh" displayText="GitHub" svgPath="/github.svg" link={github} width="25" />
 	)}
@@ -38,12 +40,6 @@ const { src, title, href, alt, tech, ps, github } = Astro.props;
 <style>
 	img {
 		box-shadow: 1px 1px 10px hsl(100 5 30);
-	}
-	a {
-		color: white;
-		:visited {
-			color: white;
-		}
 	}
 	.link-header {
 		display: flex;
