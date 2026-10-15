@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import dadabase from '../assets/portfolio/dad-a-base.jpg';
+import bakery from '../assets/portfolio/bakery-shell.jpg';
 import PortfolioCard from '../components/PortfolioCard.astro';
 ---
 
@@ -21,6 +22,30 @@ import PortfolioCard from '../components/PortfolioCard.astro';
 				features lots of custom SVGs that I made myself while learning how to make cool
 				shapes and textures with SVGs by hand. The bricks, the wooden backgrounds, and even
 				the clipboard icon were all made by me by hand!
+			</p>
+		</PortfolioCard>
+		<PortfolioCard
+			title="Bakery Shell"
+			src={bakery}
+			alt="A screenshot of a terminal window with the classic windows hill background, showing various terminal commands being run, such as 'ls' and 'cat'"
+			tech="Rust, rustyline"
+			github="https://github.com/btylerh7/bakery-shell"
+			ps="P.S., I did most of this with the Rust standard library! The auto-complete required me to pull in a library, but I went as far as I could!"
+		>
+			<p>
+				This project was made as a part of me using the{' '}
+				<a href="https://codecrafters.io" target="_blank">
+					Codecrafters
+				</a>{' '}
+				project "Build your own Shell". However, Codecrafters is not a traditional
+				"tutorial" site, and this project is built by me. Codecrafters tells you what
+				feature to add next, and you build that out however you see fit. You also choose
+				your programming language, and I opted to go with Rust.
+			</p>
+			<p>
+				Just a sample of some concepts I built: I built a custom parser, multiple shell
+				builtins, auto-complete, and the ability to run external programs that are on the
+				system path.
 			</p>
 		</PortfolioCard>
 	</main>
