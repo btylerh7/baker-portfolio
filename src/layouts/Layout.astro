@@ -1,9 +1,10 @@
 ---
-import LinkIcon from "../components/LinkIcon.astro";
-import { ClientRouter }  from "astro:transitions";
+import LinkIcon from '../components/LinkIcon.astro';
+import { ClientRouter } from 'astro:transitions';
 
 const url = Astro.url.pathname;
 ---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -17,36 +18,63 @@ const url = Astro.url.pathname;
 		<title>Tyler Baker's Internet Home</title>
 	</head>
 	<body>
-		<!-- <nav> -->
-		<!-- 	<a href="/about">About</a> -->
-		<!-- 	<a href="/portfolio">Portfolio</a> -->
-		<!-- 	<a href="https://github.com/btylerh7" target="_blank">GitHub</a> -->
-		<!-- </nav> -->
-	<div class="main-wrapper">
-	    <nav>
-		<a href="/" class={url == "/" ? "active" : ""}>Home</a>
-		<a href="/about" class={url.startsWith("/about") ? "active" : ""}>About Me</a>
-		<a href="/portfolio" class={url.startsWith("/portfolio") ? "active" : ""}>Portfolio</a>
-		<LinkIcon id="gh" showText={false} displayText="GitHub" svgPath="/github.svg" link="https://github.com/btylerh7" />
-	    </nav>
-	    <slot />
-	</div>
+		{url != '/' ? (
+			<div class="main-wrapper">
+				<nav>
+					<a href="/" class={url == '/' ? 'active' : ''}>
+						Home
+					</a>
+					<a href="/about" class={url.startsWith('/about') ? 'active' : ''}>
+						About Me
+					</a>
+					<a href="/portfolio" class={url.startsWith('/portfolio') ? 'active' : ''}>
+						Portfolio
+					</a>
+					<LinkIcon
+						id="gh"
+						showText={false}
+						displayText="GitHub"
+						svgPath="/github.svg"
+						link="https://github.com/btylerh7"
+					/>
+				</nav>
+				<slot />
+			</div>
+		) : (
+			<slot />
+		)}
 	</body>
 </html>
 
 <style is:global>
 	@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
-	:root {
-		--primary-bg-dark: hsl(260 28% 14%);
-		--primary-bg: hsl(260 70% 50%);
-		--primary-light: hsl(from var(--primary-bg) h s 80%);
-	}
-
 	@font-face {
 		font-family: 'Montserrat';
 		src: url('/Montserrat-VariableFont.ttf') format('truetype-variations');
 		font-weight: 400 700;
 		font-display: swap;
+	}
+	*::before,
+	*::after,
+	* {
+		box-sizing: border-box;
+		/* font-family: 'Montserrat'; */
+		font-family: 'Cabin', sans-serif;
+		font-size: 17px;
+		font-optical-sizing: auto;
+		font-variation-settings: 'wdth' 100;
+	}
+	:root {
+		--primary-bg-dark: hsl(260 28% 14%);
+		--primary-bg: hsl(260 70% 50%);
+		--primary-light: hsl(from var(--primary-bg) h s 80%);
+	}
+	html {
+		background: linear-gradient(
+			to bottom,
+			var(--primary-bg-dark),
+			hsl(from var(--primary-bg-dark) h 30% 30%)
+		);
 	}
 	body {
 		width: 100%;
@@ -55,17 +83,6 @@ const url = Astro.url.pathname;
 		padding: 1rem;
 		max-width: 1000px;
 		margin-inline: auto;
-		/* font-family: 'Montserrat'; */
-		font-family: 'Cabin', sans-serif;
-		font-size: 17px;
-		font-optical-sizing: auto;
-		font-variation-settings: 'wdth' 100;
-		background: linear-gradient(
-			to bottom,
-			var(--primary-bg-dark),
-			hsl(from var(--primary-bg-dark) h 30% 30%)
-		);
-	}
 	a {
 		color: white;
 		:visited {
@@ -73,36 +90,55 @@ const url = Astro.url.pathname;
 		}
 	}
 	.main-wrapper {
-	    display: grid;
-	    grid-template-columns: 1fr 3fr;
-	    min-height: 85vh;
-	    grid-template-areas: "nav main";
+		display: grid;
+		grid-template-columns: 1fr 3fr;
+		min-height: 85vh;
+		grid-template-areas: 'nav main';
 	}
 	nav {
-	    display: grid;
-	    height: 100%;
-	    grid-template-columns: 100%;
-	    grid-template-rows: repeat(4, 1fr);
-	    text-align: center;
-	    justify-content: center;
-	    grid-area: nav;
-	    gap: 0;
-	    a {
-		display: flex;
-		width: 100%;
+		display: grid;
 		height: 100%;
-		align-items: center;
+		grid-template-columns: 100%;
+		grid-template-rows: repeat(4, 1fr);
+		text-align: center;
 		justify-content: center;
-		font-weight: bold;
-		cursor: pointer;
-		font-size: 1.5rem;
-		color: white;
-		text-decoration: none;
-		position: relative;
-		&:visited {
+		grid-area: nav;
+		gap: 0;
+		a {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+			cursor: pointer;
+			font-size: 1.5rem;
 			color: white;
+			text-decoration: none;
+			position: relative;
+			&:visited {
+				color: white;
+			}
+
+			&::before {
+				content: '';
+				width: 0;
+				height: 2.5px;
+				background: white;
+				border-radius: 10px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				opacity: 0;
+				transition:
+					opacity 200ms ease-in-out,
+					width 150ms ease-in-out;
+			}
+			&:hover::before {
+				width: 100%;
+				opacity: 1;
+			}
 		}
-	    
 		&::before {
 			content: '';
 			width: 0;
@@ -116,21 +152,15 @@ const url = Astro.url.pathname;
 			transition:
 				opacity 200ms ease-in-out,
 				width 150ms ease-in-out;
+
+		.active {
+			background: var(--primary-bg-dark);
 		}
-		&:hover::before {
-		    width: 100%;
-		    opacity: 1;
-		}
-	    }
-		
-	    .active {
-		background: var(--primary-bg-dark);
-	    }
 	}
 	main {
-	    padding: 1em;
-	    grid-area: main;
-	    color: white;
-	    height:100%;
+		padding: 1em;
+		grid-area: main;
+		color: white;
+		height: 100%;
 	}
 </style>
