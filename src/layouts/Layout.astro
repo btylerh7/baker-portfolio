@@ -19,16 +19,17 @@
 	</body>
 </html>
 
-<style  is:global>
-	:root  {
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+	:root {
 		--primary-bg-dark: hsl(260 28% 14%);
 		--primary-bg: hsl(260 70% 50%);
 		--primary-light: hsl(from var(--primary-bg) h s 80%);
 	}
-	
+
 	@font-face {
-		font-family: "Montserrat";
-		src: url("/Montserrat-VariableFont.ttf") format("truetype-variations");
+		font-family: 'Montserrat';
+		src: url('/Montserrat-VariableFont.ttf') format('truetype-variations');
 		font-weight: 400 700;
 		font-display: swap;
 	}
@@ -39,8 +40,22 @@
 		padding: 1rem;
 		max-width: 1000px;
 		margin-inline: auto;
-		font-family: "Montserrat";
-		background: linear-gradient(to bottom, var(--primary-bg-dark), hsl(from var(--primary-bg-dark) h 30% 30%));
+		/* font-family: 'Montserrat'; */
+		font-family: 'Cabin', sans-serif;
+		font-size: 17px;
+		font-optical-sizing: auto;
+		font-variation-settings: 'wdth' 100;
+		background: linear-gradient(
+			to bottom,
+			var(--primary-bg-dark),
+			hsl(from var(--primary-bg-dark) h 30% 30%)
+		);
+	}
+	a {
+		color: white;
+		:visited {
+			color: white;
+		}
 	}
 	nav {
 		display: flex;
@@ -66,11 +81,13 @@
 			height: 2.5px;
 			background: white;
 			border-radius: 10px;
-			position:absolute;
+			position: absolute;
 			bottom: 0;
 			left: 0;
 			opacity: 0;
-			transition: opacity 200ms ease-in-out, width 150ms ease-in-out;
+			transition:
+				opacity 200ms ease-in-out,
+				width 150ms ease-in-out;
 		}
 		a:hover::before {
 			width: 100%;
