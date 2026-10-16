@@ -1,6 +1,6 @@
 ---
-import LinkIcon from '../components/LinkIcon.astro';
 import { ClientRouter } from 'astro:transitions';
+import Navbar from '../components/Navbar.svelte';
 
 const url = Astro.url.pathname;
 ---
@@ -18,31 +18,9 @@ const url = Astro.url.pathname;
 		<title>Tyler Baker's Internet Home</title>
 	</head>
 	<body>
-		{url != '/' ? (
-			<div class="main-wrapper">
-				<nav>
-					<a href="/" class={url == '/' ? 'active' : ''}>
-						Home
-					</a>
-					<a href="/about" class={url.startsWith('/about') ? 'active' : ''}>
-						About Me
-					</a>
-					<a href="/portfolio" class={url.startsWith('/portfolio') ? 'active' : ''}>
-						Portfolio
-					</a>
-					<LinkIcon
-						id="gh"
-						showText={false}
-						displayText="GitHub"
-						svgPath="/github.svg"
-						link="https://github.com/btylerh7"
-					/>
-				</nav>
-				<slot />
-			</div>
-		) : (
+		<Navbar url={url}>
 			<slot />
-		)}
+		</Navbar>
 	</body>
 </html>
 
