@@ -4,14 +4,16 @@
         svgPath: string;
         id: string;
         link: string;
+        alt?: string;
         width?: string;
         showText?: boolean;
+        external?: boolean;
     }
-    const { displayText, svgPath, id, link, width, showText }: Props = $props();
+    const { displayText, svgPath, id, link, width, showText, alt, external }: Props = $props();
 </script>
 
-<a href={link} target="_blank" class="icon" {id}>
-    <img src={svgPath} alt={displayText} width={width || '40'} height={width || '40'} />
+<a href={link} title={displayText} target={external == true ? '_blank' : '_self'} class="icon" {id}>
+    <img src={svgPath} alt={alt || displayText} width={width || '40'} height={width || '40'} />
     {#if showText}
         <p>{displayText}</p>
     {/if}

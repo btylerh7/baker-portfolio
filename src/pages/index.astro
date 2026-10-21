@@ -45,8 +45,9 @@ import profileImage from '../assets/profile-sm.jpg';
 			<LinkIcon
 				id="gh"
 				displayText="GitHub"
-				svgPath="/github.svg"
+				svgPath="/navigation/github.svg"
 				link="https://github.com/btylerh7"
+				showText={true}
 			/>
 		</main>
 	</div>
@@ -70,7 +71,9 @@ import profileImage from '../assets/profile-sm.jpg';
 	}
 	.wrapper {
 		display: grid;
-		place-content: center;
+		min-height: 100vh;
+		align-items: center;
+		justify-content: center;
 	}
 	.hero {
 		anchor-name: --hero-anchor;
@@ -110,7 +113,9 @@ import profileImage from '../assets/profile-sm.jpg';
 		align-items: center;
 		margin-top: -2rem;
 	}
-	.icon {
+	#gh,
+	#js,
+	#about-me {
 		img {
 			transition: transform 300ms ease-in;
 			transform: scale(1);

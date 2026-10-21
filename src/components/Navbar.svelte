@@ -1,26 +1,44 @@
 <script lang="ts">
-    const { url, children } = $props();
     import LinkIcon from './LinkIcon.svelte';
 </script>
 
-{#if url == '/'}
-    {@render children?.()}
-{:else}
-    <div class="main-wrapper">
-        <nav>
-            <a href="/" class={url == '/' ? 'active' : ''}> Home </a>
-            <a href="/about" class={url.startsWith('/about') ? 'active' : ''}> About Me </a>
-            <a href="/portfolio" class={url.startsWith('/portfolio') ? 'active' : ''}>
-                Portfolio
-            </a>
-            <LinkIcon
-                id="gh"
-                showText={false}
-                displayText="GitHub"
-                svgPath="/github.svg"
-                link="https://github.com/btylerh7"
-            />
-        </nav>
-        {@render children?.()}
-    </div>
-{/if}
+<nav>
+    <LinkIcon
+        id="home-icon"
+        showText={false}
+        displayText="Home"
+        svgPath="/navigation/home.svg"
+        link="/"
+        alt="A basic house outline"
+    />
+    <!-- <a href="/about"> About Me </a> -->
+    <LinkIcon
+        id="portfolio-icon"
+        showText={false}
+        displayText="Portfolio"
+        svgPath="/navigation/portfolio.svg"
+        link="/portfolio"
+        alt="A very simple closed briefcase with a handle on top"
+    />
+    <LinkIcon
+        id="gh-icon"
+        showText={false}
+        displayText="GitHub"
+        svgPath="/navigation/github.svg"
+        link="https://github.com/btylerh7"
+        alt="The github logo"
+        external={true}
+    />
+</nav>
+
+<style>
+    nav {
+        position: sticky;
+        bottom: 20px;
+        padding: 1rem;
+        display: flex;
+        gap: 3em;
+        justify-content: center;
+        align-items: center;
+    }
+</style>

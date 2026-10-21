@@ -1,8 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import Navbar from '../components/Navbar.svelte';
-
-const url = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -18,9 +16,8 @@ const url = Astro.url.pathname;
 		<title>Tyler Baker's Internet Home</title>
 	</head>
 	<body>
-		<Navbar url={url}>
-			<slot />
-		</Navbar>
+		<slot />
+		<Navbar />
 	</body>
 </html>
 
@@ -48,6 +45,7 @@ const url = Astro.url.pathname;
 		--primary-light: hsl(from var(--primary-bg) h s 80%);
 	}
 	html {
+		scrollbar-gutter: stable;
 		background: linear-gradient(
 			to bottom,
 			var(--primary-bg-dark),
@@ -61,78 +59,11 @@ const url = Astro.url.pathname;
 		padding: 1rem;
 		max-width: 1000px;
 		margin-inline: auto;
+	}
 	a {
 		color: white;
 		:visited {
 			color: white;
-		}
-	}
-	.main-wrapper {
-		display: grid;
-		grid-template-columns: 1fr 3fr;
-		min-height: 85vh;
-		grid-template-areas: 'nav main';
-	}
-	nav {
-		display: grid;
-		height: 100%;
-		grid-template-columns: 100%;
-		grid-template-rows: repeat(4, 1fr);
-		text-align: center;
-		justify-content: center;
-		grid-area: nav;
-		gap: 0;
-		a {
-			display: flex;
-			width: 100%;
-			height: 100%;
-			align-items: center;
-			justify-content: center;
-			font-weight: bold;
-			cursor: pointer;
-			font-size: 1.5rem;
-			color: white;
-			text-decoration: none;
-			position: relative;
-			&:visited {
-				color: white;
-			}
-
-			&::before {
-				content: '';
-				width: 0;
-				height: 2.5px;
-				background: white;
-				border-radius: 10px;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				opacity: 0;
-				transition:
-					opacity 200ms ease-in-out,
-					width 150ms ease-in-out;
-			}
-			&:hover::before {
-				width: 100%;
-				opacity: 1;
-			}
-		}
-		&::before {
-			content: '';
-			width: 0;
-			height: 2.5px;
-			background: white;
-			border-radius: 10px;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			opacity: 0;
-			transition:
-				opacity 200ms ease-in-out,
-				width 150ms ease-in-out;
-
-		.active {
-			background: var(--primary-bg-dark);
 		}
 	}
 	main {
