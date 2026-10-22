@@ -7,8 +7,8 @@ const fileText = await fs.readFile(`public/strudel/${filename}.js`, 'utf8');
 <!---->
 <script is:inline src="https://unpkg.com/@strudel/web@latest"></script>
 <script is:inline src="https://unpkg.com/@strudel/repl@latest"></script>
-<script is:inline>
-	const editor = () => document.getElementById('repl');
+<script>
+	const editor = () => document.getElementById('repl') as any;
 	const btn = () => document.getElementById('toggle-btn');
 	let isPlaying = false;
 	const onClick = () => {
@@ -21,8 +21,13 @@ const fileText = await fs.readFile(`public/strudel/${filename}.js`, 'utf8');
 		const repl = editor();
 		repl.editor.toggle();
 	};
-	document.addEventListener('DOMContentLoaded', () => {
+	document.addEventListener('astro:page-load', () => {
+		if (!editor()) return;
+		isPlaying = false;
 		btn()?.addEventListener('click', onClick);
+	});
+	document.addEventListener('astro:before-swap', () => {
+		editor().editor.stop();
 	});
 </script>
 <button id="toggle-btn">Play</button>
