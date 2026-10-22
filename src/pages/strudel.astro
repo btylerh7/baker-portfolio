@@ -1,0 +1,26 @@
+---
+import StrudelPlayer from '../components/StrudelPlayer.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<main>
+		<h1>Strudel Showcase</h1>
+		<p>
+			One thing you'll quickly find out about me is that I love programming and I love music.
+			Strudel is one of the few places where those two quickly blend together in a beatiful
+			way.
+		</p>
+		<p>
+			Strudel allows you to write JavaScript code that is then converted into music through an
+			engine inspired by the Tidal Cycles library/pattern language.
+		</p>
+		<p>
+			In the future, I plan to add some songs I've written in the time since I discovered
+			Strudel. Keep an eye out for that in the future!
+		</p>
+
+		<h2>An example song that you will love</h2>
+		<StrudelPlayer filename={'a-little-roll'} />
+	</main>
+</Layout>

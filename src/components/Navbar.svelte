@@ -13,6 +13,14 @@
     />
     <!-- <a href="/about"> About Me </a> -->
     <LinkIcon
+        id="strudel-icon"
+        showText={false}
+        displayText="Strudel (Music Coding)"
+        svgPath="/navigation/strudel.svg"
+        link="/strudel"
+        alt="A computer with a music note on the screen"
+    />
+    <LinkIcon
         id="portfolio-icon"
         showText={false}
         displayText="Portfolio"
