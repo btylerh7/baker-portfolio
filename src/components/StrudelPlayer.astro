@@ -1,0 +1,37 @@
+---
+import fs from 'node:fs/promises';
+const { filename } = Astro.props;
+const fileText = await fs.readFile(`public/strudel/${filename}.js`, 'utf8');
+---
+
+<!---->
+<script is:inline src="https://unpkg.com/@strudel/web@latest"></script>
+<script is:inline src="https://unpkg.com/@strudel/repl@latest"></script>
+<script is:inline>
+	const editor = () => document.getElementById('repl');
+	const btn = () => document.getElementById('toggle-btn');
+	let isPlaying = false;
+	const onClick = () => {
+		isPlaying = !isPlaying;
+		const button = btn();
+		if (button) {
+			button.innerText = isPlaying ? 'Stop' : 'Play';
+		}
+
+		const repl = editor();
+		repl.editor.toggle();
+	};
+	document.addEventListener('DOMContentLoaded', () => {
+		btn()?.addEventListener('click', onClick);
+	});
+</script>
+<button id="toggle-btn">Play</button>
+<strudel-editor id="repl">
+	<Fragment set:html={`<!--\n${fileText}\n-->`} />
+</strudel-editor>
+<style>
+	#toggle-btn {
+		padding: 0.1rem 0.5rem;
+		margin-bottom: 1em;
+	}
+</style>
