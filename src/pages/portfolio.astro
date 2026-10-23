@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import dadabase from '../assets/portfolio/dad-a-base.jpg';
 import bakery from '../assets/portfolio/bakery-shell.jpg';
+import solitaire from '../assets/portfolio/solitaire.jpg';
 import PortfolioCard from '../components/PortfolioCard.astro';
 ---
 
@@ -46,6 +47,41 @@ import PortfolioCard from '../components/PortfolioCard.astro';
 				Just a sample of some concepts I built: I built a custom parser, multiple shell
 				builtins, auto-complete, and the ability to run external programs that are on the
 				system path.
+			</p>
+		</PortfolioCard>
+		<PortfolioCard
+			title="Solitaire"
+			src={solitaire}
+			alt="A klondike solitaire board in a mid-game state"
+			tech="Lua, Love2d, GLSL shaders"
+			github="https://github.com/btylerh7/solitaire"
+			ps="P.S. I added some cool functional programming concepts to lua tables such as list actions (filter, map, etc.)!"
+		>
+			<p>
+				I have so many fond childhood memories of Solitaire. My grandfather had a computer
+				with Windows 95 when I was growing up, and I remember sitting in his office playing
+				Solitaire. I got it from my mom, because she would do the same thing when we went to
+				their house.
+			</p>
+			<p>
+				This was inspired by playing Balatro. Balatro is so fun, and I thought it was so
+				cool to find out that it was written in Lua. I decided I wanted to take a shot at
+				making a game with the framework!
+			</p>
+			<p>
+				I had to do a lot of small tasks to really make this work. I had to calculate how to
+				draw inidividual items on the screen, placing them in an object grid across the game
+				window. I had to add logic for continuously checking for events, such as clicks and
+				drags. I also created my own pixel art for the cards!
+			</p>
+			<p>
+				Lastly, I had to set up the rules for solitaire games. There are three primary areas
+				in Solitaire: the tableau, the foundation piles, and the stock. The tableau is the
+				playing field. The cards are usually added to the foundation pile until no card
+				remains anywhere else, usually split by suit and ordered from Ace to King. For
+				example, in Klondike (the most well-known), there are seven rows in the tableau, one
+				card in the first row, two in the second, and so on. Then there are four foundation
+				files. I wrote rules out for Klondike and Free Cell.
 			</p>
 		</PortfolioCard>
 	</main>
